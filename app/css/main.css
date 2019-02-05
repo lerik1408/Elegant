@@ -1,7 +1,7 @@
 body {
-  background-color: #000;
-  color: red;
-  left: 10;
-  left: 20;
-  font-size: 50;
-  right: 20; }
+  background-color: #000000; }
+
+div {
+  background-color: red;
+  width: 20px;
+  height: 20px; }
