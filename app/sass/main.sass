@@ -1,3 +1,6 @@
+$purpur: #65269d
+$pink-red: #fb0275
+$grey: #5e606a
 body
     font-family: 'Open Sans Rg' Gill Sans Extrabold, sans-serif
     padding: 0
@@ -17,7 +20,7 @@ a
     
 .first-block
     position: relative
-    background: linear-gradient(45deg, #a044ff, #6a3093)
+    background: linear-gradient(45deg, #a044ff, $purpur)
     height: 800px
     
     .header 
@@ -82,7 +85,7 @@ a
                 .button
                     width: 245px
                     height: 55px
-                    background-color: #fb0275
+                    background-color: $pink-red
                     display: flex
                     justify-content: center
                     align-items: center
@@ -97,9 +100,11 @@ a
                     width: 210px
 .block-2
     height: 1050px
-    // background: url(./img/block-2-flowers.png)
+    background: url(../img/block-2-sofa.png) 100px 500px no-repeat,url(../img/block-2-flowers.png) -100px 80px no-repeat
+                
     .content
         padding: 60px
+        padding-right: 50px
         width: 550px
         height: 345px
         color: #5e606a
@@ -113,7 +118,7 @@ a
         .button
             width: 245px
             height: 55px
-            background-color: #fb0275
+            background-color: $pink-red
             display: flex
             justify-content: center
             align-items: center
@@ -128,8 +133,100 @@ a
         .button:hover
             transform: scale(0.95)
     
-#ds
+.block-FAQ
+    background-color: #faf8fb
+    h3 
+        font-family: 'Open Sans Rg'
+        font-size: 30px
+        color: $purpur
+        padding-bottom: 60px
+        padding-top: 30px
+    .content
+        display: flex
+        flex-wrap: wrap
+        height: 550px
+        .content-conteiner
+            height: 110px
+            width: 550px
+            margin-right: 25px
+            h4
+                font-family: 'Open Sans Sbl'
+                padding-bottom: 30px
+                font-size: 20px
+            
+            p
+                font-family: 'Open Sans Rg'
+                font-size: 14px
+.wrap-map
+    position: relative  
+    #map
+        width: 100%
+        height: 657px
+        
+    .content
+        position: absolute
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        bottom: 200px
+        width: 460px
+        height: 370px
+        background-color: #ffffff
+        z-index: 5
+        border-radius: 10px
+        h4
+            font-family: 'Open Sans Sbl' 
+            font-size: 30px
+            color: $purpur
+            padding-bottom: 30px
+            
+        p
+            position: relative
+            font-family: 'Open Sans Rg'
+            font-size: 14px
+            padding-bottom: 10px
+            color: $grey
+        p:after
+            position: absolute
+            left: -20px
+            top: 0%
+            content: ""
+            display: block
+        .mark:after
+            width: 11px
+            height: 17px
+            background: url(../img/mark.png) no-repeat
+        .email:after
+            width: 13px
+            height: 10px
+            top: 5px
+            background: url(../img/envelope.png) no-repeat
+        .phone:after
+            width: 14px
+            height: 15px
+            background: url(../img/phone.png) no-repeat
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer
+    display: flex
+    align-items: center
     width: 100%
-    height: 2000px
-    // background: url('./img/block-2-flowers.png')
-    
+    height: 50px
+    background-color: $purpur
+    div
+        display: flex
+        justify-content: space-between
+    div>*
+        color:#fff
