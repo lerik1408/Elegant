@@ -10,6 +10,17 @@ $(document).ready(function(){
         }
       });
 
+      var feedback =$.ajax({
+        type: "GET",
+        url: "feedback.html",
+        cache:false,
+        // data: "data",
+        dataType: "html",
+        success: function (response) {
+          $('body').append(response);
+        }
+      });
+      // $('body').load('feedback.html');
       var aboutus = $.ajax({
         type: "GET",
         url: "aboutus.html",
