@@ -2,6 +2,8 @@ var gulp        = require('gulp'), // Подключаем Gulp
     uglify      = require('gulp-uglifyjs'), // Подключаем gulp-uglifyjs (для сжатия JS)
     del         = require('del'), // Подключаем библиотеку для удаления файлов и папок
     autoprefixer = require('gulp-autoprefixer'),// Подключаем библиотеку для автоматического добавления префиксов
+    imagemin    = require('gulp-imagemin'), // Подключаем библиотеку для работы с изображениями
+	pngquant    = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
     sass        = require('gulp-sass'); //Подключаем Sass пакет
 
 gulp.task('sass', function(){ // Создаем таск "sass"
@@ -9,6 +11,16 @@ gulp.task('sass', function(){ // Создаем таск "sass"
         .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
         .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
         .pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
+});
+gulp.task('img', function() {
+	return gulp.src('app/img/**/*') // Берем все изображения из app
+		.pipe(imagemin({ // Сжимаем их с наилучшими настройками
+			interlaced: true,
+			progressive: true,
+			svgoPlugins: [{removeViewBox: false}],
+			use: [pngquant()]
+		}))
+		.pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
 });
 gulp.task('scripts', function() {
     return gulp.src([ // Берем все необходимые библиотеки
@@ -28,8 +40,8 @@ gulp.task('clean', function() {
 });
 
 gulp.task('build', function() {
-    gulp.task('default', gulp.series('clean', 'sass', 'scripts'));
-    gulp.src('app/css/main.css')
+    gulp.task('default', gulp.series('clean', 'sass', 'scripts', 'img'));
+    gulp.src('app/css/**/*')
     .pipe(gulp.dest('dist/css'))
 
     gulp.src('app/fonts/**/*') // Переносим шрифты в продакшен
