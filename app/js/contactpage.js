@@ -9,6 +9,16 @@ $(document).ready(function(){
           $('body').append(response);
         }
       });
+      var contact = $.ajax({
+        type: "GET",
+        url: "contact.html",
+        cache:false,
+        // data: "data",
+        dataType: "html",
+        success: function (response) {
+          $('body').append(response);
+        }
+      });
 
       var footer = $.ajax({
         type: "GET",
@@ -26,4 +36,4 @@ $(document).ready(function(){
       $('body').delegate('.close','click',function(){
         $('.modal').toggleClass('hiden')
       })
-  });
+});

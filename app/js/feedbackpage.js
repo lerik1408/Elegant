@@ -9,7 +9,16 @@ $(document).ready(function(){
           $('body').append(response);
         }
       });
-
+      var feedback =$.ajax({
+        type: "GET",
+        url: "feedback.html",
+        cache:false,
+        // data: "data",
+        dataType: "html",
+        success: function (response) {
+          $('body').append(response);
+        }
+      });
       var footer = $.ajax({
         type: "GET",
         url: "footer.html",
@@ -26,4 +35,4 @@ $(document).ready(function(){
       $('body').delegate('.close','click',function(){
         $('.modal').toggleClass('hiden')
       })
-  });
+});
