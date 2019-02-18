@@ -1,35 +1,20 @@
 $(document).ready(function(){
-    var header = $.ajax({
+    function makePage(url, target){
+      $.ajax({
         type: "GET",
-        url: "header.html",
+        url: url,
         cache:false,
-        // data: "data",
         dataType: "html",
         success: function (response) {
-          $('body').append(response);
+          $(target).append(response);
         }
       });
-      var contact = $.ajax({
-        type: "GET",
-        url: "contact.html",
-        cache:false,
-        // data: "data",
-        dataType: "html",
-        success: function (response) {
-          $('body').append(response);
-        }
-      });
+    }
+    
+    var header = makePage("header.html",'#targetHead');
+    var contact =makePage("contact.html",'#targetContact');
+    var footer = makePage('footer.html','#targetFooter');
 
-      var footer = $.ajax({
-        type: "GET",
-        url: "footer.html",
-        cache:false,
-        // data: "data",
-        dataType: "html",
-        success: function (response) {
-          $('body').append(response);
-        }
-      });
       $('body').delegate('.button-menu','click',function(){
         $('.modal').toggleClass('hiden')
       })

@@ -1,34 +1,20 @@
 $(document).ready(function(){
-    var header = $.ajax({
-        type: "GET",
-        url: "header.html",
-        cache:false,
-        // data: "data",
-        dataType: "html",
-        success: function (response) {
-          $('body').append(response);
-        }
-      });
-      var aboutus = $.ajax({
-        type: "GET",
-        url: "aboutus.html",
-        cache:false,
-        // data: "data",
-        dataType: "html",
-        success: function (response) {
-          $('body').append(response);
-        }
-      });
-      var footer = $.ajax({
-        type: "GET",
-        url: "footer.html",
-        cache:false,
-        // data: "data",
-        dataType: "html",
-        success: function (response) {
-          $('body').append(response);
-        }
-      });
+      function makePage(url, target){
+        $.ajax({
+          type: "GET",
+          url: url,
+          cache:false,
+          dataType: "html",
+          success: function (response) {
+            $(target).append(response);
+          }
+        });
+      }
+
+      var header = makePage("header.html",'#targetHead');
+      var aboutus =makePage("aboutus.html",'#targetAbout');
+      var footer = makePage('footer.html','#targetFooter');
+
       $('body').delegate('.button-menu','click',function(){
         $('.modal').toggleClass('hiden')
       })

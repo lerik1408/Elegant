@@ -10,16 +10,17 @@ $(document).ready(function(){
         }
       });
 
-      var footer = $.ajax({
-        type: "GET",
-        url: "footer.html",
-        cache:false,
-        // data: "data",
-        dataType: "html",
-        success: function (response) {
-          $('body').append(response);
-        }
-      });
+      // var footer = $.ajax({
+      //   type: "GET",
+      //   url: "footer.html",
+      //   cache:false,
+      //   // data: "data",
+      //   dataType: "html",
+      //   success: function (response) {
+      //     $('body').append(response);
+      //   }
+      // });
+      
       $('body').delegate('.button-menu','click',function(){
         $('.modal').toggleClass('hiden')
       })
